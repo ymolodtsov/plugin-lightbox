@@ -1,14 +1,21 @@
+{{ if .Title }}
+  <figure>
+{{ end }}
 <a href="{{ .Destination | safeURL }}" 
    class="glightbox"
    data-gallery="{{ .Page.File.UniqueID }}"
    {{ with .Title }} title="{{ . }}" {{ end }}
 >
+   {{ if .Title }}
+      <figcaption>{{ .Title }}</figcaption>
+   {{ end }}
   <img src ="{{ .Destination | safeURL }}" 
-       style="border-radius: 5px; max-width: 100%"
        alt="{{ .Text }}" 
        {{ with .Title }}
           title="{{ . }}"
        {{ end }} 
   />
 </a>
-
+{{ if .Title }}
+  </figure>
+{{ end }}
